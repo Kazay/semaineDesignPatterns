@@ -1,7 +1,6 @@
 <?php
 
 namespace Controller;
-use \Model\Section as Section;
 
 class HomeController extends FrontController {
 
@@ -14,7 +13,7 @@ class HomeController extends FrontController {
 
     public function index()
     {
-       $tpl = $this->renderView($this->getSections());
+       $tpl = $this->renderView();
        echo $tpl;die;
     }
 
