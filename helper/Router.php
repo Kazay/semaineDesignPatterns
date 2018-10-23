@@ -3,12 +3,12 @@
 namespace Helper;
 use \Helper\ExceptionHandler;
 use \Controller\HomeController;
-use \Controller\ContactController;
 
 class Router
 {
     public function route()
     {
+      echo 'test';die;
         $uri = $this->trimUri($_SERVER['REQUEST_URI']);
 
         if(isset($uri[0]) && $uri[0] != '')
