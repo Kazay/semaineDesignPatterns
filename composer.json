@@ -1,0 +1,19 @@
+{
+    "name": "kc/oop",
+    "authors": [
+        {
+            "name": "Raptor Jesus",
+            "email": "contact@kevinczaja.fr"
+        }
+    ],
+    "require": {
+        "mustache/mustache": "^2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Helper\\": "helper/",
+            "Controller\\": "controller/",
+            "Model\\": "model/"
+        }
+    }
+}

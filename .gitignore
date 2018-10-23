@@ -1,0 +1,7 @@
+.vendor
+.htaccess
+.config.php
+.vscode
+cours
+adminer.php
+dump.sql
