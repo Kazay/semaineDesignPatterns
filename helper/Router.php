@@ -1,39 +1,32 @@
 <?php
 
 namespace Helper;
+
+use \Helper\RouteHandler;
 use \Helper\ExceptionHandler;
 use \Controller\HomeController;
-use \Controller\ContactController;
 
 class Router
 {
-    public function route()
+
+    function __construct()
     {
-        $uri = $this->trimUri($_SERVER['REQUEST_URI']);
 
-        if(isset($uri[0]) && $uri[0] != '')
-            $class =  ucfirst($uri[0]) . 'Controller';
-        else
-            $class = 'HomeController';
+    }
 
-        if(isset($uri[1]) && $uri[1] != '')
-            $method = $uri[1];
-        else
-            $method = 'index';
+    public function dispatch()
+    {
+        $route = RouteHandler::route();
 
-        if(file_exists('./controller/' . $class . '.php'))
+        if(count($route) > 0)
         {
-            $class = '\\Controller\\' . $class;
-            $controller = new $class();
+            $controllerName = '\\Controller\\' . $route['controller'];
+            $controller = new $controllerName();
 
-            if(method_exists($controller, $method))
-                $controller->$method();
+            // Gestion middleware, controller, parametres
         }
-        ExceptionHandler::error404();
+        else
+            ExceptionHandler::error404();
     }
 
-    private function trimUri($uri)
-    {
-        return explode('/', ltrim($uri, '/'), 2);
-    }
 }

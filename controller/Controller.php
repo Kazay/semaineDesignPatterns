@@ -6,7 +6,7 @@ use Mustache_Loader_FilesystemLoader;
 use \Helper\View;
 
 class Controller {
-
+/*
     function __construct()
     {
         $this->mustache = new Mustache([
@@ -24,4 +24,5 @@ class Controller {
 
         return $tpl;
     }
+*/
 }

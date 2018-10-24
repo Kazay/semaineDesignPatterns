@@ -8,13 +8,15 @@ class HomeController extends FrontController {
     protected $viewTitle = 'Home page';
 
     function __construct() {
-        parent::__construct();
+        /*parent::__construct();*/
     }
 
     public function index()
     {
-       $tpl = $this->renderView();
-       echo $tpl;die;
+       /*$tpl = $this->renderView();
+       echo $tpl;die;*/
+
+       echo 'Homepage';
     }
 
 }
