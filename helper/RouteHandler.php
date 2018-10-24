@@ -20,13 +20,13 @@ class RouteHandler
             
     }
 
-    private function trimUri($uri)
+    private static function trimUri($uri)
     {
         return explode('/', ltrim($uri, '/'), 2);
     }
 
     // Get current route parameters if it has been declared in route.php
-    private function getRoute($currentRoute, $routes)
+    private static function getRoute($currentRoute, $routes)
     {
         $return = [];
  
@@ -51,7 +51,7 @@ class RouteHandler
     }
 
     // Check if Controller/Method exists
-    private function checkRoute($route)
+    private static function checkRoute($route)
     {
         $return = FALSE;
 
