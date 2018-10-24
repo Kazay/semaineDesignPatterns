@@ -29,10 +29,6 @@ class ComposerStaticInit1b7438cd5bc76354221aaad2628051a5
         array (
             'Psr\\Log\\' => 8,
         ),
-        'M' => 
-        array (
-            'Model\\' => 6,
-        ),
         'H' => 
         array (
             'Helper\\' => 7,
@@ -88,10 +84,6 @@ class ComposerStaticInit1b7438cd5bc76354221aaad2628051a5
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Model\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/model',
-        ),
         'Helper\\' => 
         array (
             0 => __DIR__ . '/../..' . '/helper',
@@ -120,11 +112,11 @@ class ComposerStaticInit1b7438cd5bc76354221aaad2628051a5
     );
 
     public static $classMap = array (
-        'Model\\Base\\User' => __DIR__ . '/../..' . '/generated-classes/Model/Base/User.php',
-        'Model\\Base\\UserQuery' => __DIR__ . '/../..' . '/generated-classes/Model/Base/UserQuery.php',
-        'Model\\Map\\UserTableMap' => __DIR__ . '/../..' . '/generated-classes/Model/Map/UserTableMap.php',
-        'Model\\User' => __DIR__ . '/../..' . '/generated-classes/Model/User.php',
-        'Model\\UserQuery' => __DIR__ . '/../..' . '/generated-classes/Model/UserQuery.php',
+        'Model\\Base\\User' => __DIR__ . '/../..' . '/model/Base/User.php',
+        'Model\\Base\\UserQuery' => __DIR__ . '/../..' . '/model/Base/UserQuery.php',
+        'Model\\Map\\UserTableMap' => __DIR__ . '/../..' . '/model/Map/UserTableMap.php',
+        'Model\\User' => __DIR__ . '/../..' . '/model/User.php',
+        'Model\\UserQuery' => __DIR__ . '/../..' . '/model/UserQuery.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

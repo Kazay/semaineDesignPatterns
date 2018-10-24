@@ -13,9 +13,8 @@
     "autoload": {
         "psr-4": {
             "Helper\\": "helper/",
-            "Controller\\": "controller/",
-            "Model\\": "model/"
+            "Controller\\": "controller/"
         },
-        "classmap": ["generated-classes/"]
+        "classmap": ["model/"]
     }
 }

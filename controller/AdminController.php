@@ -23,11 +23,5 @@ class AdminController extends Controller
   {
    /*$tpl = $this->renderView();
     echo $tpl;*/
-    $user = new User();
-    $user->setPseudo('Kazay');
-    $user->setfirstName('Kevin');
-    $user->setlastName('Czaja');
-    $user->setEmail('czajakevin@gmail.com');
-    $user->save();
   }
 }
