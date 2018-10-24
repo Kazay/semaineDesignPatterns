@@ -20,10 +20,11 @@ class Router
 
         if(count($route) > 0)
         {
+            // Gestion middleware, controller, parametres
+            $method = $route['method'];
             $controllerName = '\\Controller\\' . $route['controller'];
             $controller = new $controllerName();
-
-            // Gestion middleware, controller, parametres
+            $controller->$method();
         }
         else
             ExceptionHandler::error404();

@@ -7,13 +7,15 @@
         }
     ],
     "require": {
-        "mustache/mustache": "^2.12"
+        "mustache/mustache": "^2.12",
+        "propel/propel": "~2.0@dev"
     },
     "autoload": {
         "psr-4": {
             "Helper\\": "helper/",
             "Controller\\": "controller/",
             "Model\\": "model/"
-        }
+        },
+        "classmap": ["generated-classes/"]
     }
 }

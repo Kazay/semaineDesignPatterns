@@ -6,4 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Model\\Base\\User' => $baseDir . '/generated-classes/Model/Base/User.php',
+    'Model\\Base\\UserQuery' => $baseDir . '/generated-classes/Model/Base/UserQuery.php',
+    'Model\\Map\\UserTableMap' => $baseDir . '/generated-classes/Model/Map/UserTableMap.php',
+    'Model\\User' => $baseDir . '/generated-classes/Model/User.php',
+    'Model\\UserQuery' => $baseDir . '/generated-classes/Model/UserQuery.php',
 );

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="app" defaultIdMethod="native">
+  <!-- table definitions go here -->
+  <table name="user" phpName="User" namespace="Model">
+    <!-- column and foreign key definitions go here -->
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="pseudo" type="varchar" size="255" required="true"/>
+    <column name="firstname" type="varchar" size="255" required="true" phpName="firstName"/>
+    <column name="lastname" type="varchar" size="255" required="true" phpName="lastName"/>
+    <column name="email" type="varchar" size="255" required="true"/>
+  </table>
+</database>

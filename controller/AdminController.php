@@ -4,6 +4,7 @@ namespace Controller;
 use Mustache_Engine as Mustache;
 use Mustache_Loader_FilesystemLoader;
 use \Helper\View;
+use \Model\User;
 
 class AdminController extends Controller
 {
@@ -22,6 +23,11 @@ class AdminController extends Controller
   {
    /*$tpl = $this->renderView();
     echo $tpl;*/
-    echo 'Adminpage';
+    $user = new User();
+    $user->setPseudo('Kazay');
+    $user->setfirstName('Kevin');
+    $user->setlastName('Czaja');
+    $user->setEmail('czajakevin@gmail.com');
+    $user->save();
   }
 }
