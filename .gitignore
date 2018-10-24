@@ -1,7 +1,7 @@
-.vendor
 .htaccess
 .config.php
 .vscode
+vendor
 cours
 adminer.php
 dump.sql

@@ -4,7 +4,6 @@ namespace Controller;
 use Mustache_Engine as Mustache;
 use Mustache_Loader_FilesystemLoader;
 use \Helper\View;
-use \Model\Page;
 
 class FrontController extends Controller {
 
@@ -12,7 +11,7 @@ class FrontController extends Controller {
     protected $viewDirectory = './';
 
     function __construct() {
-      parent::__construct();
+      /*parent::__construct();*/
     }
 
 }

@@ -4,10 +4,9 @@ namespace Controller;
 use Mustache_Engine as Mustache;
 use Mustache_Loader_FilesystemLoader;
 use \Helper\View;
-use \Model\Section;
 
 class Controller {
-
+/*
     function __construct()
     {
         $this->mustache = new Mustache([
@@ -25,12 +24,5 @@ class Controller {
 
         return $tpl;
     }
-
-    protected function getSections()
-    {
-        $section = new Section();
-        $arraySections = $section->getAll([], 'order');
-
-        return $arraySections;
-    }
+*/
 }
