@@ -12,4 +12,9 @@ return [
         'middleware' => ['Authentification'],
     ],
     // Define new routes here
+    'admin/add' => [
+        'controller' => 'AdminController',
+        'method' => 'add',
+        'middleware' => ['Authentification'],
+    ],
 ];

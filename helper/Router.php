@@ -11,13 +11,11 @@ class Router
 
     function __construct()
     {
-
     }
 
     public function dispatch()
     {
         $route = RouteHandler::route();
-
         if(count($route) > 0)
         {
             // Gestion middleware, controller, parametres

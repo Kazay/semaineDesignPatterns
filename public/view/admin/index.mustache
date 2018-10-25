@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+     <link rel="stylesheet" type="text/css" href="style/admin/style.css">
+</head>
+<body>
+    <h1>Administration</h1>
+    <div>
+        <h2>User's list</h2>
+        <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{# data}}
+            <tr>
+                <td>{{username}}</td>
+                <td>{{firstname}}</td>
+                <td>{{lastname}}</td>
+                <td>{{email}}</td>
+            </tr>
+            {{/ data}}
+            {{^ data}}
+            <tr>
+                <td></td>
+                <td>No users found</td>
+            </tr>
+            {{/ data}}
+            <a href="/admin/add">Add user</a>
+        </tbody>
+        </table>
+    </div>
+</body>
+</html>

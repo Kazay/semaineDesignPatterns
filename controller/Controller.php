@@ -6,7 +6,7 @@ use Mustache_Loader_FilesystemLoader;
 use \Helper\View;
 
 class Controller {
-/*
+
     function __construct()
     {
         $this->mustache = new Mustache([
@@ -15,14 +15,15 @@ class Controller {
         ]);
     }
 
-    protected function renderView($data)
+    protected function renderView($method, $data = [])
     {
-        $tpl = $this->mustache->loadTemplate($this->viewDirectory.$this->viewName);
+        $tpl = $this->mustache->loadTemplate($this->viewDirectory.$method);
         $tpl = $tpl->render([
             'title' => $this->viewTitle,
-            'data' => $data]);
+            'data' => $data
+            ]);
 
         return $tpl;
     }
-*/
+
 }
