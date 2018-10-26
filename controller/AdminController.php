@@ -21,13 +21,18 @@ class AdminController extends Controller
 
   public function index()
   {
+    $user = [];
     $usersFromTable = UserQuery::create()->find();
-    foreach($usersFromTable as $userFromTable)
+
+    if(count($usersFromTable) >0)
     {
-      $user[] = ['firstname' => $userFromTable->getfirstName(),
-                      'lastname' => $userFromTable->getlastName(),
-                      'username' => $userFromTable->getPseudo(),
-                      'email' => $userFromTable->getEmail()];
+      foreach($usersFromTable as $userFromTable)
+      {
+        $user[] = ['firstname' => $userFromTable->getfirstName(),
+                        'lastname' => $userFromTable->getlastName(),
+                        'username' => $userFromTable->getPseudo(),
+                        'email' => $userFromTable->getEmail()];
+      }
     }
 
     $tpl = $this->renderView(__FUNCTION__, $user);
@@ -39,10 +44,12 @@ class AdminController extends Controller
   {
     if($_SERVER['REQUEST_METHOD'] === 'POST')
     {
+      $user = new User();
+
       $user->setPseudo($_POST['username']);
-      $user->setfirstName($_POST['username']);
-      $user->setlastName($_POST['username']);
-      $user->setEmail($_POST['username']);
+      $user->setfirstName($_POST['firstname']);
+      $user->setlastName($_POST['lastname']);
+      $user->setEmail($_POST['email']);
       $user->save();
     }
 

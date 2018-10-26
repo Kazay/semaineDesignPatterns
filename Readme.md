@@ -1,46 +1,116 @@
-# Validation POO DSF13A - Czaja Kevin
+# Architecture MVC
 
-## Routage
+|Mise en place du workspace|
+|:-|
+<pre>
+project folder
+⌊ app
+    ⌊ Middleware
+        Authentification.php
+    ⌊ Helper
+        Router.php
+        ExceptionHandler.php
+    ⌊ Controller
+        Controller.php
+        AdminController.php
+        FrontController.php
+        NomController.php
+    ⌊ Model
+        Model.php
+        NomModel.php
+    ⌊ less
+⌊ vendor
+    ⌊ composer
+    ⌊ mustache
+    autoload.php
+⌊ webroot
+    ⌊ style
+        ⌊ admin
+            style.css
+        style.bo.css
+    ⌊ script
+        ⌊ admin
+            script.js
+        script.bo.js
+    ⌊ View
+        ⌊ layout
+        ⌊ admin
+    ⌊ media
+    index.php
+</pre>
 
-Le routage est organisé comme tel:
+## Petit tour d'horizon
 
-https://localhost/controller/methode
+Dans notre framework, l'index sera la seule et unique porte d'entrée de l'application.
 
-Si aucune méthode n'est renseigné, on tape automatiquement sur la méthode index du controller;
-Si aucun controller n'est renseigné, on tape automatiquement sur le controller HomeController et donc par extension la méthode index.
+C'est dans notre index que le routeur se chargera de récupérer l'url et de nous rediriger vers le contrôleur/méthode correspondant.
 
-## Controllers
+Un middleware s'occupera de vérifier les droits utilisateurs pour chaque accès dans la partie administration du site.
+Le contrôleur se charge de tous les traitements. avec ou sans données récupérées depuis les modèles.
 
-Un Controller principal, un controller qui gère le front, un qui gère l'administration et des controllers enfants pour gérer les vues en particulier.
+Chaque contrôleur envoie ses données traitées à une ou plusieurs vues pour afficher une page à l'utilisateur.
 
-## Vues
+### Contrôleurs
 
-Les vues sont gérées avec Mustache php https://github.com/bobthecow/mustache.php
+* Gérer le traitement des données;
+* Faire le lien entre les modèles et les vues.
 
-Vues pour le front dans /view/
-Vues pour l'admin dans /view/admin
-Tous les partials sont appelés depuis /view/partial
+### Modèles
 
-Il est possible de modifier les dossiers a l'instanciation de la classe Mustache dans les Controllers
+* Données;
+* Logique des données.
 
-## Models
+### Vues
 
-Un Model parent et ses enfants. Dans ce cas, un seul enfant, Section.
+* Interface graphique;
+* Visible par l'utilisateur.
 
-Requetes SELECT et UPDATE.
+### Helpers
 
-SELECT
-getAll récupère toutes les lignes d'une table. Par défaut, récupère toutes les colonnes. Possibilité de lui passer un tableau avec les colonnes que l'on veut récupérer et de faire un order by en lui passant la colonne en deuxième paramètre.
+### Middlewares
 
-UPDATE
-Pour l'update en particulier, on passe un array avec toutes les variables à modifier.
+* Fournir un service.
 
-## Home Page
+## LIBRAIRIES EXTERNES
 
-Affichage de toutes les sections dans l'ordre d'affichage défini coté administration.
+||Nom|Notes|
+|:-|-:|-:|
+|ORM|Propel|PHP > 5.4|
+|TEMPLATE ENGINE|Mustache|
+|PRE-PROCESSOR|LESS|
 
-## Administration
+## BASE DE DONNEES
 
-Edition des sections. Lorsqu'on update pour mettre un ordre qui existe déjà dans une autre section, on swap les deux ordres automatiquement. C'est un peu déguelasse pour le moment mais je n'ai pas le temps de pousser plus loin. C'est un début de piste. (Il faudrait limiter l'ordre max au nombre de sections déjà avec un select à la place de l'input et un count sur le nombre d'éléments renvoyés dans la liste des sections à la construction de la page).
+|users||
+|:-|-:|
+|id|INT|
+|name|VARCHAR(250)|
+|email|VARCHAR(250)|
+|password|VARCHAR(250)|
+|isAdmin|INT|
 
-ATTENTION : Ne pas mettre deux memes ordres d'affichage directement depuis la BDD. Mais qui fait ca de toute maniere !
+## FEUILLE DE ROUTE
+
+* Gérer le routage;
+* Créer la BDD;
+* Mise en place de l'ORM;
+* Mise en place du templating;
+* Mise en place du pré-processeur;
+* Authentification.
+
+## EVOLUTIONS
+
+* Ajout d'une table _roles_ avec _id_ et _title_, suppression du flag _isAdmin_ dans la table _users_ et stockage du l'_idRole_;
+* Gestion des paramètres passés dans l'url dans le **RouteHandler**.
+
+## NB
+
+Propel insert command :
+
+```
+vendor/bin/propel sql:insert --connection app=mysql:host=localhost\;dbname=app\;user=root\;password=0000\;
+```
+
+
+
+
